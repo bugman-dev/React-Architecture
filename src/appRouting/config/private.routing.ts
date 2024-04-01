@@ -1,4 +1,4 @@
-import PrivatePage from "../../pages/privatePage";
+import PrivatePage from '../../pages/privatePage';
 
 /**
  * List of all private components and routes.
@@ -6,7 +6,7 @@ import PrivatePage from "../../pages/privatePage";
  */
 export const privateRoute = [
   {
-    path: "/private",
-    element: PrivatePage,
-  },
+    path: '/private',
+    element: PrivatePage
+  }
 ];

@@ -1,4 +1,4 @@
-import PublicPage from "../../pages/publicPage";
+import PublicPage from '../../pages/publicPage';
 
 /**
  * List of all public components and routes.
@@ -6,7 +6,7 @@ import PublicPage from "../../pages/publicPage";
  */
 export const publicRoute = [
   {
-    path: "/",
-    element: PublicPage,
-  },
+    path: '/',
+    element: PublicPage
+  }
 ];

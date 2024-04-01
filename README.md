@@ -14,6 +14,10 @@
       - [Request Interceptors:](#request-interceptors)
       - [Response Interceptors:](#response-interceptors)
       - [Configuration:](#configuration)
+    - [Linting And Formatting](#linting-and-formatting)
+      - [Enabling 'Format on Save'](#enabling-format-on-save)
+      - [Rules](#rules)
+      - [Additional Commands](#additional-commands)
 
 ### After cloning the repo
 1. Change `title` and `meta` tags in `index.html` file
@@ -132,3 +136,45 @@ Customize the `onResponseError` function to handle specific HTTP error statuses,
 - Timeout: The timeout for API requests is set to 120 seconds by default but can be adjusted in `api.ts`.
 
 **Note:** Ensure to configure environment-specific variables such as the base URL appropriately, possibly using environment variables or configuration files.
+
+### Linting And Formatting
+
+The architecture utilizes ESLint and Prettier to enforce coding standards, detect syntax errors, and maintain code consistency. For detailed setup instructions, please refer to our Medium post [here](https://medium.com/globant/improving-code-quality-in-react-with-eslint-prettier-and-typescript-86635033d803).
+
+#### Enabling 'Format on Save'
+
+To enable automatic formatting on saving files, set `editor.formatOnSave` to `true` in the `settings.json` file located within the `.vscode` directory.
+
+#### Rules
+
+Prettier Rules (located in `.prettierrc.json` file):
+1. `trailingComma: "none"`: This rule specifies whether or not to add trailing commas in multi-line object literals, arrays, and function parameters. In this configuration, the rule is set to "none", meaning no trailing commas will be added.
+2. `tabWidth: 2`: This rule defines the number of spaces each tab represents in the code. In this configuration, the tab width is set to 2 spaces.
+3. `semi: true`: This rule determines whether or not to add semicolons at the end of statements. In this configuration, the rule is set to true, meaning semicolons will be added.
+4. `singleQuote: true`: This rule specifies whether to use single quotes or double quotes for string literals. In this configuration, the rule is set to true, indicating the usage of single quotes.
+
+ESLint Rules (located in `.eslintrc.json` file):
+1. `"no-use-before-define": "off"`: This rule is turned off, allowing the use of variables before they are declared. However, the TypeScript version of this rule ("@typescript-eslint/no-use-before-define") is set to "error", enforcing that variables must be declared before they are used.
+2. `"react/jsx-filename-extension": [ "warn", { "extensions": [ ".tsx" ] } ]`: This rule issues a warning if JSX is used in files with extensions other than .tsx. It helps maintain consistency by encouraging the use of .tsx files for React components.
+3. `"import/extensions": [ "error", "ignorePackages", { "ts": "never", "tsx": "never" } ]`: This rule ensures that file extensions are explicitly specified in import statements. For TypeScript files (ts and tsx), the extensions are set to "never", meaning they should not be included in import paths.
+4. `"no-shadow": "off"`: This rule is turned off, allowing variables to be re-declared in inner scopes without raising an error. However, the TypeScript version ("@typescript-eslint/no-shadow") is set to "error", enforcing that variables are not shadowed within the same scope.
+5. `"@typescript-eslint/explicit-function-return-type": [ "error", { "allowExpressions": true } ]`: This rule requires explicit return types for functions in TypeScript, allowing expressions to be exempted. It promotes code clarity and type safety by explicitly specifying function return types.
+6. `"max-len": [ "warn", { "code": 100, "ignoreComments": true, "ignoreUrls": true } ]`: This rule warns when lines exceed a maximum length of 100 characters, ignoring comments and URLs. It encourages code readability and prevents excessively long lines.
+7. `"react-hooks/rules-of-hooks": "error"`: This rule enforces the correct usage of React hooks, ensuring that they are called only in function components or custom hooks and not conditionally or nested within other functions.
+8. `"react-hooks/exhaustive-deps": "warn"`: This rule warns if dependencies are not specified exhaustively in the useEffect or useLayoutEffect hook. It ensures that all variables referenced inside the hook's callback are included in the dependency array.
+9. `"import/prefer-default-export": "off"`: This rule is turned off, allowing named exports to be used instead of a default export. It provides flexibility in module export patterns.
+10. `"react/prop-types": "off"`: This rule is turned off, disabling the requirement to define prop types for React components. It's useful when using TypeScript for type checking instead.
+11. `"prettier/prettier": [ "error", { "endOfLine": "auto" } ]`: This rule enforces Prettier's formatting rules within ESLint, ensuring consistent code style across the project. The endOfLine option is set to "auto" to maintain consistent line endings.
+
+#### Additional Commands
+
+To format the entire application files based on Prettier rules, use the following command:
+```bash
+yarn format
+```
+To apply ESLint rules and display errors in the CLI, use the following command:
+```bash
+yarn lint
+```
+
+

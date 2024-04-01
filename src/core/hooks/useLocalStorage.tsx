@@ -6,7 +6,7 @@ import { useState } from 'react';
  * @param {*} defaultValue - The default value to be used if no value is found in localStorage.
  * @returns {[*, function]} - A tuple containing the state value and a function to update it.
  */
-const useLocalStorage = (key: string, defaultValue: any) => {
+const useLocalStorage = (key: string, defaultValue: NonNullable<unknown>) => {
   // Create state variable to store
   // localStorage value in state
   const [localStorageValue, setLocalStorageValue] = useState(() => {
@@ -30,7 +30,7 @@ const useLocalStorage = (key: string, defaultValue: any) => {
   });
 
   // this method update our localStorage and our state
-  const setLocalStorageStateValue = (value: any) => {
+  const setLocalStorageStateValue = (value: NonNullable<unknown>) => {
     localStorage.setItem(key, JSON.stringify(value));
     setLocalStorageValue(value);
   };

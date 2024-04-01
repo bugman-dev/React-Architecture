@@ -3,7 +3,7 @@ import { AuthKey, routingConfig } from './config/router.config';
 import { getToken } from '../core/utils/localStorage';
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
-  let location = useLocation();
+  const location = useLocation();
 
   if (!getToken(AuthKey)) {
     return (

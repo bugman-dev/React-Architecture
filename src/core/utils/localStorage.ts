@@ -1,5 +1,3 @@
-import useLocalStorage from '../hooks/useLocalStorage';
-
 /**
  * Retrieves a token from localStorage using the provided access key.
  * @param {string} accessKey - The access key used to retrieve the token from localStorage.

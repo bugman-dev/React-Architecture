@@ -1,32 +1,32 @@
 # Basic React Architecture
 
-### Table of Contents
+## Table of Contents
 - [Basic React Architecture](#basic-react-architecture)
-    - [Table of Contents](#table-of-contents)
-    - [After cloning the repo](#after-cloning-the-repo)
-    - [Routing](#routing)
-      - [Files Structure](#files-structure)
-      - [Routing Configuration](#routing-configuration)
-      - [Usage](#usage)
-    - [API Module](#api-module)
-      - [Files](#files)
-      - [Usage](#usage-1)
-      - [Request Interceptors:](#request-interceptors)
-      - [Response Interceptors:](#response-interceptors)
-      - [Configuration:](#configuration)
-    - [Linting And Formatting](#linting-and-formatting)
-      - [Enabling 'Format on Save'](#enabling-format-on-save)
-      - [Rules](#rules)
-      - [Additional Commands](#additional-commands)
+  - [Table of Contents](#table-of-contents)
+  - [After cloning the repo](#after-cloning-the-repo)
+  - [Routing](#routing)
+    - [Files Structure](#files-structure)
+    - [Routing Configuration](#routing-configuration)
+    - [Usage](#usage)
+  - [API Module](#api-module)
+    - [Files](#files)
+    - [Usage](#usage-1)
+    - [Request Interceptors:](#request-interceptors)
+    - [Response Interceptors:](#response-interceptors)
+    - [Configuration:](#configuration)
+  - [Linting And Formatting](#linting-and-formatting)
+    - [Enabling 'Format on Save'](#enabling-format-on-save)
+    - [Rules](#rules)
+    - [Additional Commands](#additional-commands)
 
-### After cloning the repo
+## After cloning the repo
 1. Change `title` and `meta` tags in `index.html` file
 
-### Routing 
+## Routing 
 
 Here is an outline of the routing structure implemented in the React application. The routing is managed using the `react-router-dom (6.22.3*)` library, providing navigation functionality within the application.
 
-#### Files Structure
+### Files Structure
 1. **appRouting/routing.tsx**: Defines the routing configuration for the application, including public and private routes.
 2. **approuting/authRedirect.tsx**: Implements the logic for redirecting users based on authentication status.
 3. **appRouting/config/router.config.tsx**: Configures the routing settings, including private routes, public routes, and default redirection.
@@ -34,7 +34,7 @@ Here is an outline of the routing structure implemented in the React application
 5. **appRouting/config/public.routing.ts**: Defines the public routes available in the application.
 6. **src/App.tsx**: Integrates the routing provider with the React application.
 
-#### Routing Configuration 
+### Routing Configuration 
 The routing configuration is modularized to keep the code organized and maintainable. Here's an overview of each file's role in the routing setup:
 
 1. **routing.tsx**:
@@ -62,7 +62,7 @@ The routing configuration is modularized to keep the code organized and maintain
 6. **App.tsx**:
    - Integrates the routing provider with the React application by wrapping the application with `RouterProvider`.
 
-#### Usage
+### Usage
 To use the routing functionality in your React application:
 1. Define public and private routes in `private.routing.ts` and `public.routing.ts` respectively.
 2. Configure routing settings in `router.config.tsx` as per your application requirements.
@@ -80,15 +80,15 @@ function App() {
 
 export default App;
 ```
-### API Module
+## API Module
 The API module provides a convenient interface for making HTTP requests within a React application using Axios. It encapsulates common HTTP methods like GET, POST, PUT, and DELETE, along with request and response interceptors for handling headers, errors, and responses. This documentation aims to provide an overview of the module's functionality, usage, and configuration.
 
-#### Files
+### Files
 1. `api.ts`: Contains the Axios instance creation and exports functions for making HTTP requests.
 2. `requestInterceptor.ts`: Defines request interceptors for modifying request configurations before they are sent.
 3. `responseInterceptor.ts`: Defines response interceptors for handling responses and errors.
 
-#### Usage
+### Usage
 To use the API module in your React application, follow these steps:
 
 1. Import the desired functions from `api.ts` into your component.
@@ -117,35 +117,35 @@ postData('/users', payload)
     });
 ```
 
-#### Request Interceptors:
+### Request Interceptors:
 The `requestInterceptor.ts` file defines two interceptors:
 1. `onRequest`: Modifies request configurations before sending, such as adding headers.
 2. `onRequestError`: Handles errors that occur during request interception.
 
 To customize request behavior, modify the `onRequest` function according to your requirements.
 
-#### Response Interceptors:
+### Response Interceptors:
 The `responseInterceptor.ts` file defines two interceptors:
 1. `onResponse`: Handles successful responses by resolving the data.
 2. `onResponseError`: Handles errors that occur during response processing, such as HTTP errors.
 
 Customize the `onResponseError` function to handle specific HTTP error statuses, such as redirecting to an error page or displaying a toast notification.
 
-#### Configuration:
+### Configuration:
 - Base URL: The base URL for API requests can be configured in `api.ts` by setting the `baseURL` property in the Axios instance creation.
 - Timeout: The timeout for API requests is set to 120 seconds by default but can be adjusted in `api.ts`.
 
 **Note:** Ensure to configure environment-specific variables such as the base URL appropriately, possibly using environment variables or configuration files.
 
-### Linting And Formatting
+## Linting And Formatting
 
 The architecture utilizes ESLint and Prettier to enforce coding standards, detect syntax errors, and maintain code consistency. For detailed setup instructions, please refer to our Medium post [here](https://medium.com/globant/improving-code-quality-in-react-with-eslint-prettier-and-typescript-86635033d803).
 
-#### Enabling 'Format on Save'
+### Enabling 'Format on Save'
 
 To enable automatic formatting on saving files, set `editor.formatOnSave` to `true` in the `settings.json` file located within the `.vscode` directory.
 
-#### Rules
+### Rules
 
 Prettier Rules (located in `.prettierrc.json` file):
 1. `trailingComma: "none"`: This rule specifies whether or not to add trailing commas in multi-line object literals, arrays, and function parameters. In this configuration, the rule is set to "none", meaning no trailing commas will be added.
@@ -166,7 +166,7 @@ ESLint Rules (located in `.eslintrc.json` file):
 10. `"react/prop-types": "off"`: This rule is turned off, disabling the requirement to define prop types for React components. It's useful when using TypeScript for type checking instead.
 11. `"prettier/prettier": [ "error", { "endOfLine": "auto" } ]`: This rule enforces Prettier's formatting rules within ESLint, ensuring consistent code style across the project. The endOfLine option is set to "auto" to maintain consistent line endings.
 
-#### Additional Commands
+### Additional Commands
 
 To format the entire application files based on Prettier rules, use the following command:
 ```bash

@@ -1,6 +1,6 @@
-import { useLocation, Navigate } from "react-router-dom";
-import { AuthKey, routingConfig } from "./config/router.config";
-import { getToken } from "../core/utils/localStorage";
+import { useLocation, Navigate } from 'react-router-dom';
+import { AuthKey, routingConfig } from './config/router.config';
+import { getToken } from '../core/utils/localStorage';
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
   let location = useLocation();

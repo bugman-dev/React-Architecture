@@ -1,4 +1,4 @@
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from '../hooks/useLocalStorage';
 
 /**
  * Retrieves a token from localStorage using the provided access key.
@@ -6,7 +6,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
  * @returns {?string} - The retrieved token, or null if no token is found or the token is empty.
  */
 export function getToken(accessKey: string) {
-  const [token] = useLocalStorage(accessKey, "");
+  const [token] = useLocalStorage(accessKey, '');
 
   if (token && token.length) {
     return token;

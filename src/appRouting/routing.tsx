@@ -1,11 +1,11 @@
 import {
   Route,
   createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
-import { routingConfig } from "./config/router.config";
-import { Suspense } from "react";
-import { RequireAuth } from "./authRedirect";
+  createRoutesFromElements
+} from 'react-router-dom';
+import { routingConfig } from './config/router.config';
+import { Suspense } from 'react';
+import { RequireAuth } from './authRedirect';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

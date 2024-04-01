@@ -1,5 +1,3 @@
-export default function PublicPage(){
-    return(
-        <p>Public Page</p>
-    )
+export default function PublicPage() {
+  return <p>Public Page</p>;
 }

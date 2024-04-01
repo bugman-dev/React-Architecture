@@ -17,6 +17,7 @@
     - [Linting And Formatting](#linting-and-formatting)
       - [Enabling 'Format on Save'](#enabling-format-on-save)
       - [Rules](#rules)
+      - [Additional Commands](#additional-commands)
 
 ### After cloning the repo
 1. Change `title` and `meta` tags in `index.html` file
@@ -164,4 +165,16 @@ ESLint Rules (located in `.eslintrc.json` file):
 9. `"import/prefer-default-export": "off"`: This rule is turned off, allowing named exports to be used instead of a default export. It provides flexibility in module export patterns.
 10. `"react/prop-types": "off"`: This rule is turned off, disabling the requirement to define prop types for React components. It's useful when using TypeScript for type checking instead.
 11. `"prettier/prettier": [ "error", { "endOfLine": "auto" } ]`: This rule enforces Prettier's formatting rules within ESLint, ensuring consistent code style across the project. The endOfLine option is set to "auto" to maintain consistent line endings.
+
+#### Additional Commands
+
+To format the entire application files based on Prettier rules, use the following command:
+```bash
+yarn format
+```
+To apply ESLint rules and display errors in the CLI, use the following command:
+```bash
+yarn lint
+```
+
 
